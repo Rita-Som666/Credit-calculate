@@ -1,8 +1,10 @@
 public class CreditPaymentService {
-    public int calculate(int year, double monthlyPercent, int monthlyPayment, int credit) {
-       double percent = 9.99;
-        monthlyPercent = credit * percent / 100;
-        
+    public double calculate(int loanSum, int numberOfPayments, double percent) {
+        double monthlyPercent = percent/12/100;
+        double monthlyPayment;
+        monthlyPayment = (loanSum * (monthlyPercent * (Math.pow((1 + monthlyPercent), numberOfPayments)) / (Math.pow((1+monthlyPercent), numberOfPayments))));
+        return monthlyPayment;
+
 
     }
 }
